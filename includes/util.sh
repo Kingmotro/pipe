@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 generateRandomName() {
-    name = ""
-    shuf -n 2 words.txt > "$name"
+    shuf -n 2 includes/words.txt
     echo "$name"
 }

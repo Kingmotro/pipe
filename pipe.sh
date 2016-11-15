@@ -10,11 +10,13 @@ help() {
 
 create() {
     echo Creating server...
-    version
+    version=""
     name="$(generateRandomName)"
-    port
-    serverType
-    base
+    port=""
+    serverType=""
+    base=""
+
+    echo "$name"
 
     SHORT=v:n:p:t:v:b:
     LONG=version:name:port:type:base:
