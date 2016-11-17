@@ -47,4 +47,5 @@ Most servers already include what we need, but in case they don't
       -f                Force startup; Kill any process using the servers port; currently unused
 
  Stop Arguments
-      -k                Kill the server immediately; don't wait for it to stop; currently unused'''
+      -k                Kill the server immediately; don't wait for it to stop; currently unused
+'''
