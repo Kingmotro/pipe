@@ -72,23 +72,32 @@ main() {
     command="$1"
 
     case "$command" in
+        "backup")
+            backup "$@"
+            ;;
+        "clean")
+            clean "$@"
+            ;;
         "create")
             create "$@"
             ;;
         "destroy")
             destroy "$@"
             ;;
+        "download")
+            download "$2" "$3"
+            ;;
+        "restart")
+            restart "$2" "$3"
+            ;;
+        "send")
+            send "$@"
+            ;;
         "start")
             start "$@"
             ;;
         "stop")
             stop "$@"
-            ;;
-        "restart")
-            restart "$@"
-            ;;
-        "download")
-            download "$2" "$3"
             ;;
         "update")
             update "$2" "$3"
