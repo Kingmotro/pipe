@@ -32,9 +32,9 @@ backup() {
         esac
     done
 
-    echo "Backing up $name'"
+    echo "Backing up $name"
     
-    zip -r "$backup_path/$name/backup.zip "$servers_path/$name"
+    zip -r "$backup_path/$name/backup.zip" "$servers_path/$name"
 
     if [ -f "$servers_path/$name/spigot.jar" ] || [ -f "$servers_path/$name/BungeeCord.jar" ]; then
          zip -r "$backup_path/$name"/backup.zip "$servers_path/$name"
@@ -42,7 +42,6 @@ backup() {
         echo "It doesn't look like there's a server here..."
         exit 3
     fi;
-
 }
 
 timestamp() {
