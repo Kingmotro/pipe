@@ -28,7 +28,7 @@ Create a new server with the name MyServer running on port 25565
 
 Create a new BungeeCord server running on port 25565
 
-    ./pipe create -n MyBugnee -p 25565 -t bungeecord
+    ./pipe create -n MyBungee -p 25565 -t bungeecord
 
 Start a server named MyServer
 
