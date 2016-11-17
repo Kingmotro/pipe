@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Pipe by Jerred Shepherd
-# 0.1.0
+# 0.1.1
 
 source includes/util.sh
 source includes/commands/backup.sh
@@ -20,7 +20,7 @@ declare -A bungeecord_versions
 
 help() {
     printf "Created by Jerred Shepherd
-Pipe 0.1.0 Usage:
+Pipe 0.1.1 Usage:
 pipe [command] [-arguments]
  where commands are
 
