@@ -67,8 +67,8 @@ Stop a server named MyServer
     -s                Stop the server if it's running before doing the operation; currently unused
 
 ###Create Arguments
-    -p <port>         Server port
-    -t <type>         Server type (spigot or bungeecord)
+    -p <port>         Server port (defaults to 25565)
+    -t <type>         Server type (spigot or bungeecord, defaults to spigot)
     -b <name>         Base server; currently unused
 
 ###Start Arguments
