@@ -26,8 +26,6 @@ Most servers already include what we need, but in case they don't
     update
 
 ###General Arguments
-    Name              Description
-   ######            #############
     -n <name>         Server name
     -v <version>      Version 
                       For Spigot: Use Minecraft version number (eg 1.10.2) or 'latest'
