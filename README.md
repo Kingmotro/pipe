@@ -1,7 +1,9 @@
 # pipe
 <img src="http://i.imgur.com/vnX7x7j.jpg">
 
-Pipe is a server wrapper for Spigot and BungeeCord. It allows your to easily create and manage minecraft server through the command line. It also serves various utility functions allowing you to easily update and backup servers, with a single command
+Pipe is a server wrapper for Spigot and BungeeCord. It allows your to easily create and manage minecraft server through the command line. It also serves various utility functions allowing you to easily update and backup servers, with a single command.
+
+Pipe uses tmux to manage the servers, and provides a simple interface to manage those tmux sessions. You can focus on administering your server, while still maintaining a lightweight and functional enviornment, which other solutions such as McMyAdmin and Multicraft don't allow.
 
 ##Requirements
 Most servers already include what we need, but in case they don't
@@ -9,6 +11,13 @@ Most servers already include what we need, but in case they don't
 * getopt
 * zip
 * Java
+
+##Installation
+Installation is fairly simple
+1. Download the [latest release](https://github.com/ShepherdJerred/pipe/releases)
+2. Upload it to your server, anywhere will do
+3. Edit the config file, set servers_path to where you'd like your servers stored
+4. Use the program as instructed below
 
 ##Examples
 
