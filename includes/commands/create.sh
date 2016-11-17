@@ -84,6 +84,8 @@ create() {
         echo "Invalid type"
         exit 3
     fi
+    
+    echo "Server $name created"
 }
 
 createSpigot() {
