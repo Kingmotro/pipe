@@ -10,22 +10,27 @@ Most servers already include what we need, but in case they don't
 * zip
 * Java
 
+##Examples
+    ./pipe create -n MyServer -p 25565
+
 ##Usage
-    pipe [command] [-arguments]
+    ./pipe [command] [-arguments]
     
 ###Commands
-    backup
-    clean
-    create
-    destroy
-    download
-    restart
-    send
-    start
-    stop
-    update
+    Command Name   Function/Description                    Accepted Arguments
+    backup         Backup a server                         nas
+    clean          Clean a servers log files               nac
+    create         Create a new server                     nptvb
+    destroy        Destroy a server                        nc
+    download       Downlaod the latest version of a jar    tv
+    restart        Restart a server                        na
+    send           Send a command to a server              nad
+    start          Start a server                          naf
+    stop           Stop a server                           nak
+    update         Update a server                         nas
 
 ###General Arguments
+    Argument Name     Function/Description
     -n <name>         Server name
     -v <version>      Version 
                       For Spigot: Use Minecraft version number (eg 1.10.2) or 'latest'
