@@ -23,18 +23,23 @@ Installation is fairly simple
 ##Examples
 
 Create a new server with the name MyServer running on port 25565
+
     ./pipe create -n MyServer -p 25565
 
 Create a new BungeeCord server running on port 25565
+
     ./pipe create -n MyBugnee -p 25565 -t bungeecord
 
 Start a server named MyServer
+
     ./pipe start -n MyServer
 
 Stop a server named MyServer
+
     ./pipe stop -n MyServer
 
 ##Usage
+
     ./pipe [command] [-arguments]
     
 ###Commands
