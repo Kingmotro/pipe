@@ -14,6 +14,7 @@ Most servers already include what we need, but in case they don't
 
 ##Installation
 Installation is fairly simple
+
 1. Download the [latest release](https://github.com/ShepherdJerred/pipe/releases)
 2. Upload it to your server, anywhere will do
 3. Edit the config file, set servers_path to where you'd like your servers stored
