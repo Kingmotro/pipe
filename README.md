@@ -9,7 +9,8 @@ Most servers already include what we need, but in case they don't
 * Java
 
 ##Usage
-'''pipe [command] [-arguments]
+'''
+pipe [command] [-arguments]
  where commands are
  
     Name              Function                                 Arguments
