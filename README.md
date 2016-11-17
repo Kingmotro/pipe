@@ -11,4 +11,14 @@ Most servers already include what we need, but in case they don't
 * Java
 
 ##Usage
-    pipe 
+    pipe
+        backup
+        clean
+        create
+        destroy
+        download
+        restart
+        send
+        start
+        stop
+        update
