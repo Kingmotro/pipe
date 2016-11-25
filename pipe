@@ -1,26 +1,26 @@
 #!/usr/bin/env bash
 
 # Pipe by Jerred Shepherd
-# 0.1.1
+# 0.1.2
 
-source includes/util.sh
-source includes/commands/backup.sh
-source includes/commands/clean.sh
-source includes/commands/create.sh
-source includes/commands/destroy.sh
-source includes/commands/download.sh
-source includes/commands/restart.sh
-source includes/commands/send.sh
-source includes/commands/start.sh
-source includes/commands/stop.sh
-source includes/commands/update.sh
-source config
+source "${BASH_SOURCE%/*}/includes/util.sh"
+source "${BASH_SOURCE%/*}/includes/commands/backup.sh"
+source "${BASH_SOURCE%/*}/includes/commands/clean.sh"
+source "${BASH_SOURCE%/*}/includes/commands/create.sh"
+source "${BASH_SOURCE%/*}/includes/commands/destroy.sh"
+source "${BASH_SOURCE%/*}/includes/commands/download.sh"
+source "${BASH_SOURCE%/*}/includes/commands/restart.sh"
+source "${BASH_SOURCE%/*}/includes/commands/send.sh"
+source "${BASH_SOURCE%/*}/includes/commands/start.sh"
+source "${BASH_SOURCE%/*}/includes/commands/stop.sh"
+source "${BASH_SOURCE%/*}/includes/commands/update.sh"
+source "${BASH_SOURCE%/*}/config"
 
 declare -A bungeecord_versions
 
 help() {
     printf "Created by Jerred Shepherd
-Pipe 0.1.1 Usage:
+Pipe 0.1.2 Usage:
 pipe [command] [-arguments]
  where commands are
 
@@ -46,7 +46,7 @@ pipe [command] [-arguments]
                         For Spigot: Use Minecraft version number (eg 1.10.2) or 'latest'
                         For BungeeCord: Use BungeeCord build number (eg 1208) or 'latest'
                         For BuildTools: This doesn't apply
-      -a                Apply the operation to all servers; currently unused
+      -a                Apply the operation to all servers
       -c                Don't ask for confirmation; currently unused
       -s                Stop the server if it's running before doing the operation; currently unused
 

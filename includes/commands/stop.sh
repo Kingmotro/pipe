@@ -3,9 +3,10 @@
 stop() {
     name=""
     killServer="false"
+    all="false"
 
-    SHORT="n:k"
-    LONG="name:,kill"
+    SHORT="n:ka"
+    LONG="name:,kill,all"
 
     # -temporarily store output to be able to check for errors
     # -activate advanced mode getopt quoting e.g. via “--options”
@@ -30,6 +31,10 @@ stop() {
                 killServer="true"
                 shift
                 ;;
+            -a|--all)
+                all="true"
+                shift
+                ;;
             --)
                 shift
                 break
@@ -41,6 +46,17 @@ stop() {
         esac
     done
 
+    if [ "$all" == "true" ]; then
+        echo "Stopping all servers"
+        cd "$servers_path"
+        for d in */ ; do
+            if [ -f "$d/pipe.cfg" ]; then
+                stop "-n" "${d%/}"
+            fi
+        done
+        exit 3
+    fi
+
     echo "Stopping $name..."
 
     cd "$servers_path/$name"
@@ -49,9 +65,12 @@ stop() {
     if [ -f "spigot.jar" ]; then
         tmux send -t "$name" stop ENTER
     elif [ -f "BungeeCord.jar" ]; then
-        tmux send -t "$name" end ENTER
+        tmux send -t "$name" e
+        tmux send -t "$name" nd ENTER
     else
         echo "It doesn't look like there's a server here..."
         exit 3
     fi;
+
+    cd -
 }

@@ -3,9 +3,10 @@
 start() {
     name=""
     force="false"
+    all="false"
 
-    SHORT="n:f"
-    LONG="name:,force"
+    SHORT="n:fa"
+    LONG="name:,force,all"
 
     # -temporarily store output to be able to check for errors
     # -activate advanced mode getopt quoting e.g. via “--options”
@@ -30,6 +31,10 @@ start() {
                 force="true"
                 shift
                 ;;
+            -a|--all)
+                all="true"
+                shift
+                ;;
             --)
                 shift
                 break
@@ -40,6 +45,17 @@ start() {
                 ;;
         esac
     done
+
+    if [ "$all" == "true" ]; then
+    	echo "Starting all servers"
+    	cd "$servers_path"
+    	for d in */ ; do
+            if [ -f "$d/pipe.cfg" ]; then
+            	start "-n" "${d%/}"
+            fi
+        done
+        exit 3
+    fi
 
     echo "Starting $name..."
 
@@ -54,4 +70,6 @@ start() {
         echo "It doesn't look like there's a server here..."
         exit 3
     fi;
+
+    cd -
 }

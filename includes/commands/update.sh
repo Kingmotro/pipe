@@ -3,9 +3,10 @@
 update() {
     name=""
     stop="false"
+    all="false"
 
-    SHORT="n:"
-    LONG="name:"
+    SHORT="n:a"
+    LONG="name:,a"
 
     # -temporarily store output to be able to check for errors
     # -activate advanced mode getopt quoting e.g. via “--options”
@@ -30,12 +31,29 @@ update() {
                 shift
                 break
                 ;;
+            -a|--all)
+                all="true"
+                shift
+                ;;
             *)
                 echo "Invalid argument"
                 exit 3
                 ;;
         esac
     done
+
+    if [ "$all" == "true" ]; then
+        echo "Updating all servers"
+        cd "$servers_path"
+        for d in */ ; do
+            if [ -f "$d/pipe.cfg" ]; then
+                cd -
+                update "-n" "${d%/}"
+                cd "$servers_path"
+            fi
+        done
+        exit 3
+    fi
 
     echo "Updating $name to the last downloaded jar"
 
@@ -51,7 +69,9 @@ update() {
 
 updateSpigot() {
     name="$1"
-    cp "$download_path/buildtools/spigot-1.10.2.jar" "$servers_path/$name/spigot.jar"
+    cd "$download_path/buildtools/"
+    cp "$(ls -v spigot*.jar | tail -n 1)" "$servers_path/$name/spigot.jar"
+    cd -
 }
 
 updateBungeecord() {

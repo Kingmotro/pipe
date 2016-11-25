@@ -95,8 +95,7 @@ createSpigot() {
 
     if [ "$version" == "latest" ]; then
         download "spigot" "latest"
-        echo Copying latest version of Spigot
-        cp "$download_path/buildtools/spigot-1.10.2.jar" "$servers_path/$name/spigot.jar"
+        update "$name"
     else
         if [ ! -f "$download_path/buildtools/spigot-$version.jar" ]; then
             echo "Spigot $version not downloaded; downloading it"
