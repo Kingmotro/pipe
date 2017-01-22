@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 # Pipe by Jerred Shepherd
-# 0.1.2
+# 0.1.3
 
 source "${BASH_SOURCE%/*}/includes/util.sh"
+source "${BASH_SOURCE%/*}/includes/commands/attach.sh"
 source "${BASH_SOURCE%/*}/includes/commands/backup.sh"
 source "${BASH_SOURCE%/*}/includes/commands/clean.sh"
 source "${BASH_SOURCE%/*}/includes/commands/create.sh"
@@ -20,14 +21,15 @@ declare -A bungeecord_versions
 
 help() {
     printf "Created by Jerred Shepherd
-Pipe 0.1.2 Usage:
+Pipe 0.1.3 Usage:
 pipe [command] [-arguments]
  where commands are
 
     Name              Function                                 Accepted Arguments
    ######            ##########                               ####################
+    attach            Attach to a server console               n
     backup            Backup a server                          nas
-    clean             Clean a servers log files                nac
+    clean             Clean a servers log files                nas
     create            Create a new server                      nptvb
     destroy           Destroy a server                         nc
     download          Download the latest version of a jar     tv
@@ -52,7 +54,7 @@ pipe [command] [-arguments]
 
  Create Arguments
       -p <port>         Server port
-      -t <type>         Server type (spigot or bungeecord)
+      -t <type>         Server type (Spigot or BungeeCord)
       -b <name>         Base server; currently unused
 
  Start Arguments
@@ -72,6 +74,9 @@ main() {
     command="$1"
 
     case "$command" in
+        "attach")
+            update "$@"
+            ;;
         "backup")
             backup "$@"
             ;;
@@ -85,10 +90,10 @@ main() {
             destroy "$@"
             ;;
         "download")
-            download "$2" "$3"
+            download "$@"
             ;;
         "restart")
-            restart "$2" "$3"
+            restart "$@"
             ;;
         "send")
             send "$@"
@@ -100,7 +105,7 @@ main() {
             stop "$@"
             ;;
         "update")
-            update "$2" "$3"
+            update "$@"
             ;;
         *)
             help

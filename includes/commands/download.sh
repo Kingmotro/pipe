@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 download() {
-    target="$1"
-    version="$2"
 
     mkdir -p "$download_path"
 
