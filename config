@@ -17,3 +17,5 @@ download_path=download
 
 # The path to store server backups, relative to the install path
 backup_path=backup
+
+tmux_prefix=

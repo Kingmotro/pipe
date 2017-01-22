@@ -25,43 +25,45 @@ Pipe 0.1.3 Usage:
 pipe [command] [-arguments]
  where commands are
 
-    Name              Function                                 Accepted Arguments
-   ######            ##########                               ####################
+    Name              Function                                 Accepted Arguments      Notes
+   ######            ##########                               ####################    ######
     attach            Attach to a server console               n
-    backup            Backup a server                          nas
-    clean             Clean a servers log files                nas
-    create            Create a new server                      nptvb
-    destroy           Destroy a server                         nc
+    backup            Backup a server                          ns                     Don't run this while the server is running
+    clean             Clean a servers log files                ns
+    create            Create a new server                      nptv
+    destroy           Destroy a server                         ni
     download          Download the latest version of a jar     tv
-    restart           Restart a server                         na
-    send              Send a command to a server               nad
+    restart           Restart a server                         n
+    send              Send a command to a server               nc
     start             Start a server                           naf
     stop              Stop a server                            nak
-    update            Update a server                          nas
+    update            Update a server                          na                      Don't run this while the server is running
 
  General Arguments
 
       Name              Description
      ######            #############
       -n <name>         Server name
-      -v <version>      Version 
-                        For Spigot: Use Minecraft version number (eg 1.10.2) or 'latest'
-                        For BungeeCord: Use BungeeCord build number (eg 1208) or 'latest'
-                        For BuildTools: This doesn't apply
       -a                Apply the operation to all servers
-      -c                Don't ask for confirmation; currently unused
-      -s                Stop the server if it's running before doing the operation; currently unused
+      -i                Do the operation immediately
+      -t <type>         Type (Spigot or BungeeCord when creating, BuildTools can be specified when updating)
+      -v <version>      Version
+                        For Spigot: Use Minecraft version number (eg 1.11.2) or 'latest'
+                        For BungeeCord: Use BungeeCord build number (eg 1222) or 'latest'
+                        For BuildTools: This doesn't apply, we always download the latest version
+
+
+ Send Arguments
+      -c <command>      The command to send to the server
 
  Create Arguments
       -p <port>         Server port
-      -t <type>         Server type (Spigot or BungeeCord)
-      -b <name>         Base server; currently unused
 
  Start Arguments
-      -f                Force startup; Kill any process using the servers port; currently unused
+      -f                Force startup; Kill any process using the servers port
 
  Stop Arguments
-      -k                Kill the server immediately; don't wait for it to stop; currently unused\n"
+      -k                Kill the server immediately\n"
 }
 
 main() {

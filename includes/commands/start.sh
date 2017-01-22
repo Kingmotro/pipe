@@ -62,6 +62,15 @@ start() {
     cd "$servers_path/$name"
     source pipe.cfg
 
+    if [ "$force" == "true" ]; then
+        echo "Killing any processes on the server port"
+        fuser -n tcp -k "${port}"
+
+    if [ tmux has-session -t "$name" ]; then
+        echo "That server is already up"
+        exit 3
+    fi;
+
     if [ -f "spigot.jar" ]; then
         tmux new -d -s "$name" "java -Xms${min_ram} -Xmx${max_ram} -jar spigot.jar"
     elif [ -f "BungeeCord.jar" ]; then

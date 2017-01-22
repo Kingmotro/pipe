@@ -62,6 +62,16 @@ stop() {
     cd "$servers_path/$name"
     source pipe.cfg
 
+    if ! [ tmux has-session -t "$name" ]; then
+        echo "That server isn't up right now"
+        exit 3
+    fi;
+
+    if [ "$killServer" == "true" ]; then
+        tmux kill-session -t "$name"
+        exit 3
+    fi;
+
     if [ -f "spigot.jar" ]; then
         tmux send -t "$name" stop ENTER
     elif [ -f "BungeeCord.jar" ]; then

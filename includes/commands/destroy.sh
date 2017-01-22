@@ -2,9 +2,10 @@
 
 destroy() {
     name=""
+    immediate="false"
 
-    SHORT="n:"
-    LONG="name:"
+    SHORT="n:i"
+    LONG="name:,immediate"
 
     # -temporarily store output to be able to check for errors
     # -activate advanced mode getopt quoting e.g. via “--options”
@@ -25,6 +26,9 @@ destroy() {
                 name="$2"
                 shift 2
                 ;;
+            -i|--immdiate)
+                immediate="true"
+                ;;
             --)
                 shift
                 break
@@ -37,6 +41,11 @@ destroy() {
     done
 
     echo "Destroying $name... All files will be deleted"
+
+    if [ "$immediate" == "false" ]; then
+        echo "You have 5 seconds to cancel (Press CTRL+C)"
+        sleep 5s
+    fi;
 
     if [ -f "$servers_path/$name/pipe.cfg" ]; then
         tmux kill-session -t "$name"

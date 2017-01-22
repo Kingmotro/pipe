@@ -41,7 +41,7 @@ start() {
     cd "$servers_path/$name"
 
     if [ -f "spigot.jar" ] || [ -f "BungeeCord.jar" ]; then
-       if [tmux has-session -t "$name"]; then
+       if [ tmux has-session -t "$name" ]; then
            tmux a -t "$name"
         else
             echo "That server isn't up right now"

@@ -107,7 +107,7 @@ createSpigot() {
     fi
     printf "eula=true" > "$servers_path/$name/eula.txt"
     printf "server-port=$port" > "$servers_path/$name/server.properties"
-    printf "max_ram=1G\nmin_ram=512M" > "$servers_path/$name/pipe.cfg"
+    printf "max_ram=1G\nmin_ram=512M/server-port=$port" > "$servers_path/$name/pipe.cfg"
 }
 
 createBungeecord() {

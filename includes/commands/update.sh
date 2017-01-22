@@ -27,13 +27,17 @@ update() {
                 name="$2"
                 shift 2
                 ;;
-            --)
-                shift
-                break
-                ;;
             -a|--all)
                 all="true"
                 shift
+                ;;
+            -s|--stop)
+                stop="true"
+                shift
+                ;;
+            --)
+                shift
+                break
                 ;;
             *)
                 echo "Invalid argument"

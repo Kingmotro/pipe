@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 backup() {
+    TIMESTAMP=$(date +%m-%d-%Y-%H-%M-%S)
+
     name=""
 
     SHORT="n:"
@@ -33,17 +35,11 @@ backup() {
     done
 
     echo "Backing up $name"
-    
-    zip -r "$backup_path/$name/backup.zip" "$servers_path/$name"
 
     if [ -f "$servers_path/$name/spigot.jar" ] || [ -f "$servers_path/$name/BungeeCord.jar" ]; then
-         zip -r "$backup_path/$name"/backup.zip "$servers_path/$name"
+         zip -r "$backup_path/$name/backup-$TIMESTAMP.zip" "$servers_path/$name"
     else
         echo "It doesn't look like there's a server here..."
         exit 3
     fi;
-}
-
-timestamp() {
-  date +"%T"
 }

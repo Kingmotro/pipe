@@ -4,7 +4,7 @@ send() {
     name=""
     command=""
 
-    SHORT="n:o:"
+    SHORT="n:c:"
     LONG="name:,command:"
 
     # -temporarily store output to be able to check for errors
@@ -40,6 +40,11 @@ send() {
                 ;;
         esac
     done
+
+    if ! [ tmux has-session -t "$name" ]; then
+        echo "That server isn't up right now"
+        exit 3
+    fi;
 
     echo "Sending $command to $name..."
 
